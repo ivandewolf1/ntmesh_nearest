@@ -58,8 +58,8 @@ function(nt_near_target name)
 endfunction()
 
 nt_near_target(ntmesh_nearest_tests test/main.C test/test_near.C)
-nt_near_target(nearpc_scene test/nearpc_scene.C)
-nt_near_target(nearpc_scene_big test/nearpc_scene_big.C)
+nt_near_target(nearpc_scene samples/nearpc/src/main.C)
+target_compile_definitions(nearpc_scene PRIVATE OUT_DIR="${CMAKE_CURRENT_SOURCE_DIR}/samples/nearpc")
 
 message(STATUS "NTV_ROOT: ${NTV_ROOT}")
 message(STATUS "NTMESH_ROOT: ${NTMESH_ROOT}")
