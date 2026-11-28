@@ -6,6 +6,8 @@ int g_fails = 0;
 int main()
 {
   nearestTest();
+  primScanTest();
+  nearPrimTest();
 
   if (g_fails) {
     std::cerr << g_fails << " assertion(s) failed\n";

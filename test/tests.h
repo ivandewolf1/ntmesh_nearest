@@ -18,3 +18,5 @@ inline void expect_vec(const ntv::nvec3<T>& got, const ntv::nvec3<T>& exp, T eps
 }
 
 void nearestTest();
+void primScanTest();
+void nearPrimTest();

@@ -1,8 +1,8 @@
 # Overview
 
-**ntmesh_nearest** answers one question: given a cloud of points, which point is closest to this query? The answer is an index into the array you passed to `build`. Positions are `ntv::nvec3<T>` from [ntv](https://github.com/ivandewolf1/ntv). The sample that draws the result uses [ntmesh](https://github.com/ivandewolf1/ntmesh) to read a bunny and write a `.geo`.
+**ntmesh_nearest** answers two questions. Given a cloud of points, which point is closest to this query? And given triangles, quads, n-gons, and polylines, which primitive is closest, and where on it? Positions are `ntv::nvec3<T>` from [ntv](https://github.com/ivandewolf1/ntv). The sample that draws the point-cloud result uses [ntmesh](https://github.com/ivandewolf1/ntmesh) to read a bunny and write a `.geo`.
 
-The library is the single header [`src/ntmesh_nearpc.h`](../src/ntmesh_nearpc.h). Include it, build a tree, call `nearest`. Call `clear()` when you are done.
+[`src/ntmesh_nearpc.h`](../src/ntmesh_nearpc.h) is the point cloud. Include it, build a tree, call `nearest`. Call `clear()` when you are done. [`src/ntmesh_primscan.h`](../src/ntmesh_primscan.h) walks triangles, quads, n-gons, and polylines. There is no tree.
 
 ## The tree
 
@@ -33,6 +33,10 @@ A plain copy of a `NearPC` copies the pointer. `clear()` frees that array. Call 
 ## Docs
 
 - [ntmesh_nearpc](ntmesh_nearpc.md) — types and calls
+- [ntmesh_primscan](ntmesh_primscan.md) — closest point on triangles, quads, n-gons, and polylines
 - [nearpc sample](nearpc_sample.md) — the bunny scenes, `bench`, and `--threads`
+- [primscan sample](primscan_sample.md) — the same scenes, walking every primitive
+- [nearprim sample](nearprim_sample.md) — the same scenes, answered by the median tree
+- [quadscan sample](quadscan_sample.md) — the same scenes, four closest-point methods on quads
 
 See the [README](../README.md) for the roots and the build.
